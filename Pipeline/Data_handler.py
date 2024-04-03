@@ -132,8 +132,6 @@ def load_game_data():
     df["offensive_rating_away"] = df["pts_away"] / df["pos_away"] * 100
     df["defensive_rating_away"] = df["pts_home"] / df["pos_home"] * 100
 
-    df["spread_home"] = df["pts_home"] - df["pts_away"]
-
     generate_moving_average_features(df)
 
     # Eric wants this for some reasons? Why not use the columns directly

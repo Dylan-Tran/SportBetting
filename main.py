@@ -1,3 +1,4 @@
+from Models.GBR_Tree_Model import GBR_Tree_Model
 from Models.Elo_only_model import Elo_Model
 from Models.Average_Spread_Model import Average_Spread_Model
 from Pipeline.Evaluate import evalute_model
@@ -47,10 +48,13 @@ if __name__ == "__main__":
         "LA Clippers",
     }
 
-    elo_model = Elo_Model(TEAMS)
-    true_spread, predicted_spread = evalute_model(elo_model)
+    # elo_model = Elo_Model(TEAMS)
+    # true_spread, predicted_spread = evalute_model(elo_model)
 
     # baseline_model = Average_Spread_Model()
     # true_spread, predicted_spread = evalute_model(baseline_model)
+
+    tree_model = GBR_Tree_Model()
+    true_spread, predicted_spread = evalute_model(tree_model)
 
     generated_spread_histogram(predicted_spread, true_spread)

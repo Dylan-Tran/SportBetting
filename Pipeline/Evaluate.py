@@ -14,12 +14,63 @@ Assume that data pass in each method will be rows from the game.csv
 
 def convert_data_into_InputFeatures(df) -> List[InputFeatures]:
     info = df[
-        ["team_name_home", "team_name_away", "pts_home", "pts_away"]
+        [
+            "team_name_home",
+            "team_name_away",
+            "pts_home",
+            "pts_away",
+            "pos_home",
+            "pos_away",
+            "offensive_rating_home",
+            "defensive_rating_home",
+            "offensive_rating_away",
+            "defensive_rating_away",
+            "OR_home",
+            "DR_home",
+            "OR_away",
+            "DR_away",
+            "rest_home",
+            "rest_away",
+        ]
     ].values.tolist()
 
     processed_data = [
-        InputFeatures(team_name_home, team_name_away, pts_home, pts_away)
-        for team_name_home, team_name_away, pts_home, pts_away in info
+        InputFeatures(
+            team_name_home,
+            team_name_away,
+            pts_home,
+            pts_away,
+            pos_home,
+            pos_away,
+            offensive_rating_home,
+            defensive_rating_home,
+            offensive_rating_away,
+            defensive_rating_away,
+            OR_home,
+            DR_home,
+            OR_away,
+            DR_away,
+            rest_home,
+            rest_away,
+        )
+        for (
+            team_name_home,
+            team_name_away,
+            pts_home,
+            pts_away,
+            pos_home,
+            pos_away,
+            offensive_rating_home,
+            defensive_rating_home,
+            offensive_rating_away,
+            defensive_rating_away,
+            OR_home,
+            DR_home,
+            OR_away,
+            DR_away,
+            rest_home,
+            rest_away,
+        ) in info
     ]
     return processed_data
 
